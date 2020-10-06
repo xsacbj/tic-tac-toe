@@ -1,0 +1,185 @@
+#room .container
+{
+  display: inline;
+  width: 100%;
+  height: 100%;
+}
+
+#room .container .header
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20pt 30pt;
+  font-size: 12pt;
+  margin-bottom: 50pt;
+}
+
+#room .container .content
+{
+  display: flex;
+  height: 450pt;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#room .container .content .hash
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#room .container .content .play
+{
+  height: 100%;
+  width: 250pt;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#room .container .content .x
+{
+  background: linear-gradient(90deg, rgba(185, 110, 210, 0.3) 0%, rgba(185, 110, 210, 0) 100%);
+}
+
+#room .container .content .o
+{
+  background: linear-gradient(270deg, rgba(185, 110, 210, 0.3) 0%, rgba(185, 110, 210, 0) 100%);
+}
+
+#room .container .content .hash
+{
+  position: relative;
+}
+
+#room .container .content .hash .cell
+{
+  position: absolute;
+}
+
+#room .container .content .hash .cell .choosing
+{
+  opacity: 0;
+  transition: 0.2s;
+}
+#room .container .content .hash .cell .choosing:hover
+{
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+#room .container .content .hash .c00
+{
+  top: 75pt;
+  left: 0;
+}
+
+#room .container .content .hash .c01
+{
+  top: 75pt;
+  left: 115pt;
+}
+
+#room .container .content .hash .c02
+{
+  top: 75pt;
+  left: 230pt;
+}
+
+#room .container .content .hash .c10
+{
+  top: 190pt;
+  left: 0;
+}
+
+#room .container .content .hash .c11
+{
+  top: 190pt;
+  left: 115pt;
+}
+
+#room .container .content .hash .c12
+{
+  top: 190pt;
+  left: 230pt;
+}
+
+#room .container .content .hash .c20
+{
+  top: 305pt;
+  left: 0;
+}
+
+#room .container .content .hash .c21
+{
+  top: 305pt;
+  left: 115pt;
+}
+
+#room .container .content .hash .c22
+{
+  top: 305pt;
+  left: 230pt;
+}
+
+#room .container .content .hash .line
+{
+  position: absolute;
+  width: 300pt;
+  height: 5pt;
+  border-radius: 10pt;
+  background: #000;
+}
+
+#room .container .content .hash .row-0
+{
+  top: 105pt;
+}
+
+#room .container .content .hash .row-1
+{
+  top: 220pt;
+}
+
+#room .container .content .hash .row-2
+{
+  top: 335pt;
+}
+
+#room .container .content .hash .col-0
+{
+  left: -112pt;
+  transform: rotate(90deg);
+}
+
+#room .container .content .hash .col-1
+{
+  transform: rotate(90deg);
+}
+
+#room .container .content .hash .col-2
+{
+  left: 112pt;
+  transform: rotate(90deg);
+}
+
+#room .container .content .hash .diag-0
+{
+  width: 350pt ;
+  top: 48.2%;
+  transform: rotate(45deg);
+}
+
+#room .container .content .hash .diag-1
+{
+  width: 350pt ;
+  top: 49.2%;
+  transform: rotate(135deg);
+}
+
+
+
+
+

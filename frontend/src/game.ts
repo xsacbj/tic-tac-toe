@@ -1,5 +1,3 @@
-import { type } from "os";
-
 const X = 'x';
 const O = 'o';
 
@@ -9,8 +7,8 @@ type GameState = {
     playersId?:[PlayerId, PlayerId];
     x?: PlayerId;
     o?: PlayerId;
-    playNow?:Mark;
-    map?: [
+    playNow:Mark;
+    map: [
         [Mark, Mark, Mark],
         [Mark, Mark, Mark],
         [Mark, Mark, Mark]
@@ -31,6 +29,18 @@ class Game {
         };
 
         
+    }
+
+    private observers = [] as any; 
+
+    public subscribe(observerFunction:any){
+        this.observers.push(observerFunction);
+    }
+
+    private notifyAll(command:any){
+        for(let observerFunction of this.observers){
+            observerFunction(command)
+        }
     }
 
     public getState(){
@@ -91,6 +101,7 @@ class Game {
         if(this.state.map){
             this.state.map[row][col] = mark;
         }
+        this.changeHowPlay();
     }
     
     
@@ -101,10 +112,10 @@ class Game {
         }
         //verify rows
         for(let row=0; row<3; row++){
-            if(map[row] === [X, X, X]){
-                return X;
-            }else if(map[row] === [O, O, O]){
-                return O;
+            if(map[row][0] === X && map[row][1] === X && map[row][2] === X){
+                return {player:X, type:`row-${row}`};
+            }else if(map[row][0] === O && map[row][1] === O && map[row][2] === O){
+                return {player:O, type:`row-${row}`};
             }
         }
         
@@ -112,32 +123,32 @@ class Game {
         
         for(let col=0; col<3; col++){
             if(map[0][col] === X && map[1][col] === X && map[2][col] === X){
-                return X;
+                return {player:X, type:`col-${col}`};
             }else if(map[0][col] === O && map[1][col] === O && map[2][col] === O){
-                return O;
+                return {player:O, type:`col-${col}`};
             }
         }
         
         //verify main diagonal of the matrix
         
         if(map[0][0] === X && map[1][1] === X && map[2][2] === X){
-            return X;
+            return {player:X, type:`diag-0`};
         }else if(map[0][0] === O && map[1][1] === O && map[2][2] === O){
-            return O;
+            return {player:O, type:`diag-0`};
         }
         
         //verify secondary diagonal of the matrix
         
         if(map[0][2] === X && map[1][1] === X && map[2][0] === X){
-            return X;
+            return {player:X, type:`diag-1`};
         }else if(map[0][2] === O && map[1][1] === O && map[2][0] === O){
-            return O;
+            return {player:O, type:`diag-1`};
         }
         
         return null;
     }
 
-    changeHowPlay(){
+    private changeHowPlay(){
         if(this.state.playNow===X){
             this.state.playNow = O;
         }else if(this.state.playNow===O){
