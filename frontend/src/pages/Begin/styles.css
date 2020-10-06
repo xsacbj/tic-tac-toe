@@ -1,0 +1,64 @@
+#begin .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#begin .container .menu{
+    position: absolute;
+    width: 350pt;
+    top: 25%;
+    left: 10%;
+}
+
+#begin .container .menu h1{
+    font-size: 64pt;
+    margin-bottom: 30pt;
+}
+
+#begin .container .menu h2{
+    margin-left: 20pt;
+    font-size: 28pt;
+    margin-bottom: 10pt;
+}
+
+#begin .container .menu h2:hover{
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+#begin .container .hash{
+    display: flex;
+    position: absolute;
+    top: 40%;
+    right: 35%;
+    transform: rotate(-15deg);
+}
+
+#begin .container .hash .line{
+    
+    display: flex;
+    position: absolute;
+    width: 300pt;
+    height: 25pt;
+    border-radius: 20pt;
+    background: var(--color-primary);
+    box-shadow: -4pt 4pt 4pt var(--color-primary-dark);
+}
+
+#begin .container .hash .two{
+    left: 0;
+    top:90pt;
+}
+
+#begin .container .hash .three{
+    left: -55pt;
+    top:45pt;
+    transform: rotate(90deg);
+}
+
+#begin .container .hash .four{
+    left: 45pt;
+    top:45pt;
+    transform: rotate(90deg);
+}
